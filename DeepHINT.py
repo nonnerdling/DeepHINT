@@ -289,5 +289,5 @@ def test(n_estimators = 16):
 
 if __name__ == '__main__':
 	set_up_model_up()
- 	train_model(n_estimators = 16)
+ 	#train_model(n_estimators = 16)
 	test(n_estimators = 16)
