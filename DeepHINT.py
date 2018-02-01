@@ -268,12 +268,6 @@ def test(n_estimators = 16):
 			y_pred =  np.array(y_pred)
 			ensemble += y_pred
 
-			auroc = roc_auc_score(y_test, y_pred)
-			aupr = average_precision_score(y_test, y_pred)
-
-			print ('auroc', auroc)
-			print ('aupr' , aupr)
-
 		ensemble /= n_estimators
 
 		np.save('test_result/y_test', y_test)
