@@ -24,7 +24,6 @@ from keras.layers.recurrent import LSTM, GRU
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 from keras.layers import Embedding
 from sklearn.metrics import fbeta_score, roc_curve, auc, roc_auc_score, average_precision_score
-import matplotlib.pyplot as plt
 from keras.regularizers import l2, l1, l1_l2
 from keras.models import Model
 from keras import backend as K
@@ -43,7 +42,7 @@ class Attention(Layer):
 	    self.W_constraint = constraints.get(W_constraint)
 	    self.hidden=hidden
 	    super(Attention, self).__init__(**kwargs)
-	    
+
 	def build(self, input_shape):
 	    input_dim = input_shape[-1]
 	    self.input_length = input_shape[1]
@@ -52,23 +51,23 @@ class Attention(Layer):
 	    self.b0 = K.zeros((self.hidden,), name='{}_b0'.format(self.name))
 	    self.b  = K.zeros((1,), name='{}_b'.format(self.name))
 	    self.trainable_weights = [self.W0,self.W,self.b,self.b0]
-	    
+
 	    self.regularizers = []
 	    if self.W_regularizer:
 	        self.W_regularizer.set_param(self.W)
 	        self.regularizers.append(self.W_regularizer)
-	    
+
 	    if self.b_regularizer:
 	        self.b_regularizer.set_param(self.b)
 	        self.regularizers.append(self.b_regularizer)
-	    
+
 	    self.constraints = {}
 	    if self.W_constraint:
 	        self.constraints[self.W0] = self.W_constraint
 	        self.constraints[self.W] = self.W_constraint
-	        
+
 	    super(Attention, self).build(input_shape)
-	    
+
 	def call(self,x,mask=None):
 	        attmap = self.activation(K.dot(x, self.W0)+self.b0)
 	        attmap = K.dot(attmap, self.W) + self.b
