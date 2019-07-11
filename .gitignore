@@ -1,0 +1,8 @@
+hg19/
+data/GD_MSE_test_neg.bed.fasta
+data/GD_MSE_test_pos.bed.fasta
+data/GD_MSE_test_pos.npy
+data/GD_MSE_test_neg.npy
+data/X_test.npy
+data/y_test.npy
+test_result/
