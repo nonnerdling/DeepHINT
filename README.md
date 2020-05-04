@@ -9,4 +9,4 @@ Note that a user-friendly online version of DeepHINT is coming soon. The current
 
 If you have any questions, please feel free to contact me : )
 
-Email: huhl16@mails.tsinghua.edu.cn
+Email: huhailin92@gmail.com
